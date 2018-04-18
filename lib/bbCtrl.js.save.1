@@ -1,0 +1,30 @@
+var net = require('net');
+const nmea = require('node-nmea');
+var Client = require('node-rest-client').Client;
+module.exports = (scServer) => {
+    class bbController {
+        constructor() {}
+        run(options) {
+            var client = new Client();
+            var server = net.createServer(function(socket) {
+            socket.write('Echo server\r\n');
+            socket.pipe(socket);
+		socket.on('data',function(data){
+		//let gprmc = nmea.parse(data.toString());
+		try{
+			let gpsData = JSON.parse(data.toString());
+			scServer.exchange.publish(gpsData.device_id, gpsData);
+			var args = {
+                	        data: {'deviceModel':'BB', gpsData },
+                       			 headers: { "Content-Type": "application/json" }
+                    };
+                    client.post("https://zurikatoapi.herokuapp.com/api/v1/gps/coords", args, function (data, response) {});
+});
+        });
+
+         server.listen(options.port,options.ipaddress);
+
+        }
+    }
+    return new bbController(scServer);
+};

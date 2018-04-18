@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ZURIKATO TRACKER</title>
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <script type="text/javascript" src="/socketcluster.min.js"></script>
+    <style>
+        html {
+            height: 100%;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            color: #666666;
+            display: table;
+            font-weight: 100;
+            font-family: 'Roboto', Helvetica, sans-serif;
+        }
+        
+        a {
+            font-weight: 300;
+            color: #72B963;
+        }
+        
+        .container {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .content {
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .title {
+            font-size: 96px;
+            margin-bottom: 20px;
+        }
+        
+        .text {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .small {
+            font-size: 18px;
+        }
+        
+        .github-button {
+            padding-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="title">
+                ZURIKATO TRACKER
+            </div>
+            <div class="text">
+                Awesomeness.
+            </div>
+            <div class="small">
+               
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // Initiate the connection to the server
+        var options = {
+            hostname: '189.207.202.64',
+            port: 3000
+        };
+        var socket = socketCluster.connect(options);
+        socket.on('error', function(err) {
+            throw 'Socket error - ' + err;
+        });
+        socket.on('connect', function() {
+            console.log('CONNECTED');
+        });
+        socket.on('rand', function(data) {
+            console.log('RANDOM STREAM: ' + data.rand);
+        });
+        var sampleChannel = socket.subscribe('sample');
+        sampleChannel.on('subscribeFail', function(err) {
+            console.log('Failed to subscribe to the sample channel due to error: ' + err);
+        });
+        sampleChannel.watch(function(num) {
+            console.log('Sample channel message:', num);
+        });
+    </script>
+</body>
+
+</html>

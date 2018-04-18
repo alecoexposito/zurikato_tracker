@@ -1,0 +1,29 @@
+{
+  "name": "zurikato_tracker",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gps",
+    "tracker"
+  ],
+  "author": "DenmaSoft",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "app-root-path": "^2.0.1",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "crc": "^3.5.0",
+    "crc16-ccitt-node": "^1.0.4",
+    "express": "^4.16.2",
+    "node-nmea": "^1.0.4",
+    "node-rest-client": "^3.1.0",
+    "node.extend": "*",
+    "socketcluster": "^9.3.1",
+    "socketcluster-client": "^9.0.3"
+  }
+}
