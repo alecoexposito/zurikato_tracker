@@ -19,7 +19,7 @@ class Worker extends SCWorker {
 	var bb = require(__dirname + '/lib/bbCtrl')(scServer);
         deviceController.run({ debug: true, port: 3000, device_adapter: 'GT06' });
 	console.log('ANTES DEL BB RUN');
-	bb.run({port:3002, ipaddress:"69.64.32.172"});
+	bb.run({port:3002, ipaddress:"187.217.220.34"});
 /*	var router = express.Router();
 	router.post('/', function(req, res, next) {
              let gpsData = JSON.parse(req.body.data.toString());
