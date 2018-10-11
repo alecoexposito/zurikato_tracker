@@ -6,6 +6,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cors = require('cors');
+var config = require('./config');
 class Worker extends SCWorker {
 
     run() {
@@ -19,7 +20,8 @@ class Worker extends SCWorker {
 	var bb = require(__dirname + '/lib/bbCtrl')(scServer);
         deviceController.run({ debug: true, port: 3000, device_adapter: 'GT06' });
 	console.log('ANTES DEL BB RUN');
-	bb.run({port:3002, ipaddress:"187.217.220.34"});
+	console.log(config);
+	bb.run({port:config.bbPort, ipaddress:config.serverAllIp});
 /*	var router = express.Router();
 	router.post('/', function(req, res, next) {
              let gpsData = JSON.parse(req.body.data.toString());
