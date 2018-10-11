@@ -9,3 +9,5 @@ var socketCluster = new SocketCluster({
     socketChannelLimit: 1000,
     rebootWorkerOnCrash: true
 });
+
+console.log("test message");
