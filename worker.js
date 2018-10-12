@@ -17,24 +17,14 @@ class Worker extends SCWorker {
         app.use(serveStatic(path.resolve(__dirname, 'public')));
         httpServer.on('request', app);
         var deviceController = require(__dirname + '/lib/deviceController')(scServer);
-	var bb = require(__dirname + '/lib/bbCtrl')(scServer);
+	    var bb = require(__dirname + '/lib/bbCtrl')(scServer);
         deviceController.run({ debug: true, port: 3000, device_adapter: 'GT06' });
-	console.log('ANTES DEL BB RUN');
-	console.log(config);
-	bb.run({port:config.bbPort, ipaddress:config.serverAllIp});
-/*	var router = express.Router();
-	router.post('/', function(req, res, next) {
-             let gpsData = JSON.parse(req.body.data.toString());
-		console.log(gpsData);
-                scServer.exchange.publish(gpsData.device_id, gpsData);
-                var args = {
-                        data: {'deviceModel':'BB', gpsData },
-                        headers: { "Content-Type": "application/json" }
-                    };
-                    client.post("http://189.207.202.64:3007/api/v1/gps/coords", args, function (data, response) {});
-	});
-       app.use('/bbdata',router);*/
+	    bb.run({port:config.bbPort, ipaddress:config.serverAllIp});
         scServer.on('connection', function(socket) {});
+
+        // var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
+        // mdvrController.run({ debug: true, port: 3000, device_adapter: 'MDVR' });
+
     }
 }
 new Worker();
