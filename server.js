@@ -1,3 +1,4 @@
+var http = require('http');
 var SocketCluster = require('socketcluster');
 var socketCluster = new SocketCluster({
     workers: 1,
