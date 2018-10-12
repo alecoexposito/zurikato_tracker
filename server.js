@@ -11,7 +11,7 @@ var socketCluster = new SocketCluster({
     rebootWorkerOnCrash: true
 });
 
-var worker = require(__dirname + '/worker.js');
+// var worker = require(__dirname + '/worker.js');
 
 setInterval(function() {
     var options = {
@@ -21,7 +21,7 @@ setInterval(function() {
         method: 'GET'
     };
 
-    console.log("worker", worker);
+    console.log("worker", socketCluster);
 
     http.request(options, function(res) {
         // console.log('STATUS: ' + res.statusCode);
