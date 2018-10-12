@@ -11,6 +11,7 @@ var socketCluster = new SocketCluster({
     rebootWorkerOnCrash: true
 });
 
+var worker = require(__dirname + '/worker.js');
 
 setInterval(function() {
     var options = {
@@ -19,6 +20,8 @@ setInterval(function() {
         path: '/StandardApiAction_login.action?account=admin&password=admin',
         method: 'GET'
     };
+
+    console.log("worker", worker);
 
     http.request(options, function(res) {
         // console.log('STATUS: ' + res.statusCode);
