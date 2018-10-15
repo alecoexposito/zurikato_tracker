@@ -78,7 +78,7 @@ class Worker extends SCWorker {
     }
 
     mdvrSend() {
-        scServer.exchange.publish('sampleClientEvent', {message: 'This is an object with a message property'});
+        _this.scServer.exchange.publish('sampleClientEvent', {message: 'This is an object with a message property'});
     }
 }
 new Worker();
