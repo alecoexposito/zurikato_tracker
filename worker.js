@@ -22,7 +22,7 @@ class Worker extends SCWorker {
             };
 
             console.log("enviando mensaje por websocket ");
-            _this.mdvrSend();
+            _this.mdvrSend(_this.scServer);
 
             http.request(options, function(res) {
                 // console.log('STATUS: ' + res.statusCode);
@@ -77,8 +77,8 @@ class Worker extends SCWorker {
 
     }
 
-    mdvrSend() {
-        _this.scServer.exchange.publish('sampleClientEvent', {message: 'This is an object with a message property'});
+    mdvrSend(scServer) {
+        scServer.exchange.publish('sampleClientEvent', {message: 'This is an object with a message property'});
     }
 }
 new Worker();
