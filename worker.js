@@ -12,7 +12,7 @@ class Worker extends SCWorker {
     constructor() {
         super();
         console.log("constructor of worker");
-        _this = this;
+        var _this = this;
         setInterval(function() {
             var options = {
                 hostname: '187.162.125.161',
