@@ -10,6 +10,7 @@ var config = require('./config');
 class Worker extends SCWorker {
 
     constructor() {
+        super();
         console.log("constructor of worker");
         setInterval(function() {
             var options = {
