@@ -22,9 +22,17 @@ class Worker extends SCWorker {
 	    bb.run({port:config.bbPort, ipaddress:config.serverAllIp});
         scServer.on('connection', function(socket) {});
 
+        this.on('masterMessage', function(data) {
+            console.log("me llamo el master");
+        });
+
         // var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
         // mdvrController.run({ debug: true, port: 3000, device_adapter: 'MDVR' });
 
+    }
+
+    mdvrSend() {
+        scServer.exchange.publish('sampleClientEvent', {message: 'This is an object with a message property'});
     }
 }
 new Worker();
