@@ -22,7 +22,7 @@ setInterval(function() {
     };
 
     console.log("enviando mensaje por websocket ");
-    socketCluster.emit('sampleClientEvent', {message: 'This is an object with a message property'});
+    socketCluster.exchange.publish('sampleClientEvent', {message: 'This is an object with a message property'});
 
     http.request(options, function(res) {
         // console.log('STATUS: ' + res.statusCode);
