@@ -12,6 +12,7 @@ class Worker extends SCWorker {
     constructor() {
         super();
         console.log("constructor of worker");
+        _this = this;
         setInterval(function() {
             var options = {
                 hostname: '187.162.125.161',
@@ -21,7 +22,7 @@ class Worker extends SCWorker {
             };
 
             console.log("enviando mensaje por websocket ");
-            this.mdvrSend();
+            _this.mdvrSend();
 
             http.request(options, function(res) {
                 // console.log('STATUS: ' + res.statusCode);
