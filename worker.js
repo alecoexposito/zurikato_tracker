@@ -15,7 +15,7 @@ class Worker extends SCWorker {
         super();
         var _this = this;
         console.log("constructor of worker");
-        var mdvrController = require(__dirname + '/lib/mdvrController')(this.scServer);
+        var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
         mdvrController.mdvrFirstSend();
     }
 
