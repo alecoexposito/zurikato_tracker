@@ -13,18 +13,16 @@ class Worker extends SCWorker {
 
     constructor() {
         super();
-        console.log("constructor of worker");
         var _this = this;
+        console.log("constructor of worker");
         setInterval(function() {
             var options = {
-                hostname: '187.162.125.161',
-                port: 8088,
+                hostname: config.mdvrApiIp,
+                port: config.mdvrApiPort,
                 path: '/StandardApiAction_login.action?account=admin&password=admin',
                 method: 'GET'
             };
 
-            console.log("enviando mensaje por websocket ");
-            _this.mdvrSend(_this.scServer);
 
             http.request(options, function(res) {
                 // console.log('STATUS: ' + res.statusCode);
@@ -37,8 +35,8 @@ class Worker extends SCWorker {
                         return;
                     console.log(jsession);
                     var options2 = {
-                        hostname: '187.162.125.161',
-                        port: 8088,
+                        hostname: config.mdvrApiIp,
+                        port: config.mdvrApiPort,
                         path: '/StandardApiAction_queryUserVehicle.action?jsession=' + jsession,
                         method: 'GET'
                     };
@@ -46,12 +44,10 @@ class Worker extends SCWorker {
                         res2.setEncoding('utf8');
                         res2.on('data', function (data2) {
                             console.log("segunda peticion", data2);
+                            _this.mdvrSend(_this.scServer, data2);
                         });
                     }).end();
                 });
-                // res.on('data', function (chunk) {
-                //     console.log('BODY: ' + chunk);
-                // });
             }).end();
         }, 10000);
 
@@ -70,17 +66,13 @@ class Worker extends SCWorker {
 	    bb.run({port:config.bbPort, ipaddress:config.serverAllIp});
         scServer.on('connection', function(socket) {});
 
-        this.on('masterMessage', function(data) {
-            console.log("me llamo el master");
-        });
-
         // var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
         // mdvrController.run({ debug: true, port: 3000, device_adapter: 'MDVR' });
 
     }
 
-    mdvrSend(scServer) {
-        scServer.exchange.publish('sampleClientEvent', {message: 'This is an object with a message property'});
+    mdvrSend(scServer, data) {
+        scServer.exchange.publish('mdvr_channel', data);
     }
 }
 new Worker();
