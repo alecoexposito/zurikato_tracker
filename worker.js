@@ -37,8 +37,5 @@ class Worker extends SCWorker {
 
     }
 
-    mdvrSend(scServer, data) {
-        scServer.exchange.publish('mdvr_channel', data);
-    }
 }
 new Worker();
