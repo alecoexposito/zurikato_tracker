@@ -14,9 +14,6 @@ class Worker extends SCWorker {
     constructor() {
         super();
         var _this = this;
-        console.log("constructor of worker");
-        var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
-        mdvrController.mdvrFirstSend();
     }
 
     run() {
@@ -30,6 +27,8 @@ class Worker extends SCWorker {
 	    var bb = require(__dirname + '/lib/bbCtrl')(scServer);
         deviceController.run({ debug: true, port: 3000, device_adapter: 'GT06' });
 	    bb.run({port:config.bbPort, ipaddress:config.serverAllIp});
+        var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
+        mdvrController.mdvrFirstSend();
         scServer.on('connection', function(socket) {});
 
         // var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
