@@ -8,6 +8,8 @@ config.bbPort = 3002;
 // configs for mdvr
 config.mdvrApiIp = '69.64.51.66';
 config.mdvrApiPort = 80;
+config.mdvrApiUser = 'admin';
+config.mdvrApiPass = 'dtvaxnet';
 
 
 module.exports = config;
