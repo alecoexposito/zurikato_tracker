@@ -7,7 +7,7 @@ config.bbPort = 3002;
 
 // configs for mdvr
 config.mdvrApiIp = '69.64.51.66';
-config.mdvrApiPort = '';
+config.mdvrApiPort = 80;
 
 
 module.exports = config;
