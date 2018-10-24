@@ -6,8 +6,8 @@ config.webSocketPort = 3000;
 config.bbPort = 3002;
 
 // configs for mdvr
-config.mdvrApiIp = '187.162.125.161';
-config.mdvrApiPort = 8088
+config.mdvrApiIp = '69.64.51.66';
+config.mdvrApiPort = '';
 
 
 module.exports = config;
