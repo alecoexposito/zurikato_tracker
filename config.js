@@ -15,7 +15,7 @@ config.bbPort = 3002;
 config.mdvrApiIp = '187.162.125.161';
 config.mdvrApiPort = 8088;
 config.mdvrApiUser = 'zurikato';
-config.mdvrApiPass = '000000 ';
+config.mdvrApiPass = '000000';
 
 module.exports = config;
 
