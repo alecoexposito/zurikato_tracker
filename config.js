@@ -11,7 +11,7 @@ config.bbPort = 3002;
 // config.mdvrApiUser = 'admin';
 // config.mdvrApiPass = 'dtvaxnet';
 
-configs for mdvr server de pruebas
+// configs for mdvr server de pruebas
 config.mdvrApiIp = '187.162.125.161';
 config.mdvrApiPort = 8088;
 config.mdvrApiUser = 'zurikato';
