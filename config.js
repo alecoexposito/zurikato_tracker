@@ -13,9 +13,9 @@ config.bbPort = 3002;
 
 // configs for mdvr server de pruebas
 config.mdvrApiIp = '187.162.125.161';
-config.mdvrApiPort = 8088;
-config.mdvrApiUser = 'zurikato';
-config.mdvrApiPass = '000000';
+config.mdvrApiPort = 8080;
+config.mdvrApiUser = 'admin';
+config.mdvrApiPass = 'admin';
 
 module.exports = config;
 
