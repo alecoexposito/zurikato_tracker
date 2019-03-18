@@ -23,12 +23,12 @@ class Worker extends SCWorker {
         var scServer = this.scServer;
         app.use(serveStatic(path.resolve(__dirname, 'public')));
         httpServer.on('request', app);
-        var deviceController = require(__dirname + '/lib/deviceController')(scServer);
+        // var deviceController = require(__dirname + '/lib/deviceController')(scServer);
 	    var bb = require(__dirname + '/lib/bbCtrl')(scServer);
-        deviceController.run({ debug: true, port: 3000, device_adapter: 'GT06' });
+        // deviceController.run({ debug: true, port: 3000, device_adapter: 'GT06' });
 	    bb.run({port:config.bbPort, ipaddress:config.serverAllIp});
-        var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
-        mdvrController.loginAndGetVehicles();
+        // var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
+        // mdvrController.loginAndGetVehicles();
         scServer.on('connection', function(socket) {});
 
         // var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
