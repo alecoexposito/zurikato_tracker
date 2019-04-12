@@ -30,10 +30,6 @@ class Worker extends SCWorker {
         var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
         mdvrController.loginAndGetVehicles();
         scServer.on('connection', function(socket) {});
-
-        // var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
-        // mdvrController.run({ debug: true, port: 3000, device_adapter: 'MDVR' });
-
     }
 
 }
