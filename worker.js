@@ -29,7 +29,11 @@ class Worker extends SCWorker {
 	    bb.run({port:config.bbPort, ipaddress:config.serverAllIp});
         var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
         mdvrController.loginAndGetVehicles();
-        scServer.on('connection', function(socket) {});
+        scServer.on('connection', function(socket) {
+            socket.watch("camera_channel", function(data) {
+                console.log("llego en el camera channel", data);
+            });
+        });
     }
 
 }
