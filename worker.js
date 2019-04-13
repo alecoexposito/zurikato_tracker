@@ -30,10 +30,7 @@ class Worker extends SCWorker {
         var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
         mdvrController.loginAndGetVehicles();
         scServer.on('connection', function(socket) {
-            var cameraChannel = socket.subscribe("camera_channel");
-            cameraChannel.watch("camera_channel", function(data) {
-                console.log("llego en el camera channel", data);
-            });
+
         });
     }
 
