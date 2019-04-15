@@ -13,10 +13,10 @@ config.webSocketPort = 3000;
 config.bbPort = 3002;
 
 // configs for mdvr
-config.mdvrApiIp = '69.64.51.66';
-config.mdvrApiPort = 80;
-config.mdvrApiUser = 'admin';
-config.mdvrApiPass = 'dtvaxnet';
+config.mdvrApiIp = '209.126.127.171';
+config.mdvrApiPort = 8088;
+config.mdvrApiUser = 'tvz1';
+config.mdvrApiPass = '1978050707';
 
 // configs for mdvr server de pruebas
 // config.mdvrApiIp = '187.162.125.161';
