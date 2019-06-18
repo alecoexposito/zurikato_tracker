@@ -17,6 +17,7 @@ class Worker extends SCWorker {
     }
 
     run() {
+        var _this = this;
         console.log('   >> Worker PID:', process.pid);
         var app = require('express')();
         var httpServer = this.httpServer;
