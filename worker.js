@@ -31,7 +31,7 @@ class Worker extends SCWorker {
         mdvrController.loginAndGetVehicles();
         scServer.on('connection', function(socket) {
             setInterval(function() {
-                console.log("connected clients: ", socket.clients);
+                console.log("connected clients: ", _this.scServer.clients);
 
             }, 2000);
         });
