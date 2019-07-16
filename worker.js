@@ -30,12 +30,12 @@ class Worker extends SCWorker {
 	    bb.run({port:config.bbPort, ipaddress:config.serverAllIp});
         var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
         mdvrController.loginAndGetVehicles();
-        scServer.on('connection', function(socket) {
-            setInterval(function() {
+        // scServer.on('connection', function(socket) {
+        //     setInterval(function() {
             //     console.log("connected clients: ", _this.scServer.clientsCount);
             //
             // }, 2000);
-        });
+        // });
     }
 
 }
