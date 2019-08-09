@@ -1,4 +1,5 @@
 var http = require('http');
+var config = require('config');
 var SocketCluster = require('socketcluster');
 var socketCluster = new SocketCluster({
     workers: 1,
@@ -11,4 +12,5 @@ var socketCluster = new SocketCluster({
     rebootWorkerOnCrash: true
 });
 
-// var worker = require(__dirname + '/worker.js');
+
+// var worker = require(__dirname + '/worker.js')   ;

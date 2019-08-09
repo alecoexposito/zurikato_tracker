@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var config = require('./config');
 var http = require('http');
+var net = require('net');
 
 class Worker extends SCWorker {
 
@@ -30,6 +31,24 @@ class Worker extends SCWorker {
 	    bb.run({port:config.bbPort, ipaddress:config.serverAllIp});
         var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
         mdvrController.loginAndGetVehicles();
+
+        var socketTracker = net.createServer(function() {
+            console.log("socket server connected");
+        });
+
+        socket.listen(config.socketPort, '0.0.0.0', function() {
+            console.log("listening on port: " + config.socketPort);
+
+            socketTracker.on('data', function(data) {
+                console.log("data received over tcp: ", data);
+            });
+            socketTracker.on('end', () => {
+                // const file = Buffer.concat(chunks)
+                // do what you want with it
+                console.log("its over the tcp transfer");
+            });
+        });
+
         // scServer.on('connection', function(socket) {
         //     setInterval(function() {
             //     console.log("connected clients: ", _this.scServer.clientsCount);
