@@ -1,5 +1,4 @@
 var http = require('http');
-var config = require('config');
 var SocketCluster = require('socketcluster');
 var socketCluster = new SocketCluster({
     workers: 1,
