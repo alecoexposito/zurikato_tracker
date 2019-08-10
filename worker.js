@@ -43,11 +43,14 @@ class Worker extends SCWorker {
                 conn.on('data', function(data) {
                     console.log("data received over tcp: ", data);
                 });
-                socketTracker.on('end', () => {
+                conn.on('end', () => {
                     // const file = Buffer.concat(chunks)
                     // do what you want with it
                     console.log("its over the tcp transfer");
                 });
+                conn.on('close', function() {
+                    console.log("on the close event");
+                })
             });
 
         });
