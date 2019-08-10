@@ -41,6 +41,7 @@ class Worker extends SCWorker {
 
             socketTracker.on('connection', function(conn) {
                 conn.on('data', function(data) {
+                    conn.setEncoding("utf8");
                     console.log("data received over tcp: ", data);
                 });
                 conn.on('end', () => {
