@@ -51,7 +51,12 @@ class Worker extends SCWorker {
                 });
                 conn.on('close', function() {
                     console.log("on the close event");
-                })
+                });
+
+                conn.on('error', function(err) {
+                    console.log("error ocurred");
+                    console.log(err);
+                });
             });
 
         });
