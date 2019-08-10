@@ -39,14 +39,17 @@ class Worker extends SCWorker {
         socketTracker.listen(config.socketPort, '0.0.0.0', function() {
             console.log("listening on port: " + config.socketPort);
 
-            socketTracker.on('data', function(data) {
-                console.log("data received over tcp: ", data);
+            socketTracker.on('connection', function() {
+                conn.on('data', function(data) {
+                    console.log("data received over tcp: ", data);
+                });
+                conn.on('end', () => {
+                    // const file = Buffer.concat(chunks)
+                    // do what you want with it
+                    console.log("its over the tcp transfer");
+                });
             });
-            socketTracker.on('end', () => {
-                // const file = Buffer.concat(chunks)
-                // do what you want with it
-                console.log("its over the tcp transfer");
-            });
+
         });
 
         // scServer.on('connection', function(socket) {
