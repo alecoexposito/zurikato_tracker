@@ -39,7 +39,7 @@ class Worker extends SCWorker {
         socketTracker.listen(config.socketPort, '0.0.0.0', function() {
             console.log("listening on port: " + config.socketPort);
 
-            socketTracker.on('connection', function() {
+            socketTracker.on('connection', function(conn) {
                 conn.on('data', function(data) {
                     console.log("data received over tcp: ", data);
                 });
