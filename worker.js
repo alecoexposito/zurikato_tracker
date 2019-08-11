@@ -9,7 +9,6 @@ var cors = require('cors');
 var config = require('./config');
 var http = require('http');
 var net = require('net');
-var Readable = require('stream').Readable
 
 class Worker extends SCWorker {
 
