@@ -32,32 +32,32 @@ class Worker extends SCWorker {
         var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
         mdvrController.loginAndGetVehicles();
 
-        var socketTracker = net.createServer(function() {
-            console.log("socket server connected");
-        });
-
-        socketTracker.listen(config.socketPort, '0.0.0.0', function() {
-            console.log("listening on port: " + config.socketPort);
-
-            socketTracker.on('connection', function(conn) {
-                conn.on('data', function(data) {
-                    // console.log(conn.getEncoding());
-                    console.log("data received over tcp: ", data);
-                });
-                conn.on('end', () => {
-                    // const file = Buffer.concat(chunks)
-                    // do what you want with it
-                    console.log("its over the tcp transfer");
-                });
-                conn.on('close', function() {
-                    console.log("on the close event");
-                });
-
-                conn.on('error', function(err) {
-                    console.log("error ocurred");
-                    console.log(err);
-                });
-            });
+        // var socketTracker = net.createServer(function() {
+        //     console.log("socket server connected");
+        // });
+        //
+        // socketTracker.listen(config.socketPort, '0.0.0.0', function() {
+        //     console.log("listening on port: " + config.socketPort);
+        //
+        //     socketTracker.on('connection', function(conn) {
+        //         conn.on('data', function(data) {
+        //             // console.log(conn.getEncoding());
+        //             console.log("data received over tcp: ", data);
+        //         });
+        //         conn.on('end', () => {
+        //             // const file = Buffer.concat(chunks)
+        //             // do what you want with it
+        //             console.log("its over the tcp transfer");
+        //         });
+        //         conn.on('close', function() {
+        //             console.log("on the close event");
+        //         });
+        //
+        //         conn.on('error', function(err) {
+        //             console.log("error ocurred");
+        //             console.log(err);
+        //         });
+        //     });
 
         });
 
