@@ -59,7 +59,7 @@ class Worker extends SCWorker {
         //         });
         //     });
 
-        });
+        // });
 
         // scServer.on('connection', function(socket) {
         //     setInterval(function() {
