@@ -29,6 +29,7 @@ class Worker extends SCWorker {
 	    var bb = require(__dirname + '/lib/bbCtrl')(scServer);
         deviceController.run({ debug: true, port: 3000, device_adapter: 'GT06' });
 	    bb.run({port:config.bbPort, ipaddress:config.serverAllIp});
+
         // var mdvrController = require(__dirname + '/lib/mdvrController')(scServer);
         // mdvrController.loginAndGetVehicles();
 
