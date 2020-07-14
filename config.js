@@ -24,5 +24,7 @@ config.mdvrApiPass = '1978050707';
 // config.mdvrApiUser = 'admin';
 // config.mdvrApiPass = 'admin';
 
+config.socketPort = 3008;
+
 module.exports = config;
 

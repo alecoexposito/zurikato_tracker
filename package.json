@@ -20,10 +20,11 @@
     "crc": "^3.5.0",
     "crc16-ccitt-node": "^1.0.4",
     "express": "^4.16.2",
+    "moment": "^2.27.0",
     "node-nmea": "^1.0.4",
     "node-rest-client": "^3.1.0",
     "node.extend": "*",
-    "socketcluster": "^9.3.1",
-    "socketcluster-client": "^9.0.3"
+    "socketcluster": "^14.3.0",
+    "socketcluster-client": "^16.0.0"
   }
 }
